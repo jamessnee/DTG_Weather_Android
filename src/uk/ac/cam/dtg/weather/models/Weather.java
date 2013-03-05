@@ -1,6 +1,6 @@
 package uk.ac.cam.dtg.weather.models;
 
-public class weather {
+public class Weather {
 	private double time;
 	private double temp;
 	private int humidity;

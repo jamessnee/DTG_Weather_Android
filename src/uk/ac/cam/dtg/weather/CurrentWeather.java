@@ -1,8 +1,10 @@
 package uk.ac.cam.dtg.weather;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import uk.ac.cam.dtg.weather.connections.*;
 
 public class CurrentWeather extends Activity {
 
@@ -10,6 +12,15 @@ public class CurrentWeather extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_current_weather);
+		
+		new AsyncTask<Void, Void, String>() {
+
+			@Override
+			protected String doInBackground(Void... params) {
+				DTGWSConnection.getCurrentWeather();
+				return "";
+			}
+		}.execute();
 	}
 
 	@Override
