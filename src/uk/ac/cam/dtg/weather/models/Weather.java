@@ -5,7 +5,7 @@ public class Weather {
 	private double temp;
 	private int humidity;
 	private double dewPoint;
-	private double pressure;
+	private int pressure;
 	private double windSpeed;
 	private String windDirection;
 	private double sunHours;
@@ -37,10 +37,10 @@ public class Weather {
 	public void setDewPoint(double dewPoint) {
 		this.dewPoint = dewPoint;
 	}
-	public double getPressure() {
+	public int getPressure() {
 		return pressure;
 	}
-	public void setPressure(double pressure) {
+	public void setPressure(int pressure) {
 		this.pressure = pressure;
 	}
 	public double getWindSpeed() {

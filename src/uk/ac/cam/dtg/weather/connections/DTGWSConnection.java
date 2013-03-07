@@ -34,7 +34,7 @@ public class DTGWSConnection {
 			String pressureFetched = fetchedWeather.get(3);
 			String pressure = pressureFetched.split(":")[1];
 			pressure = pressure.replaceAll("mBar", "").trim();
-			weather.setHumidity(Integer.parseInt(pressure));
+			weather.setPressure(Integer.parseInt(pressure));
 			
 			//Humidity
 			String humidFetched = fetchedWeather.get(4);
