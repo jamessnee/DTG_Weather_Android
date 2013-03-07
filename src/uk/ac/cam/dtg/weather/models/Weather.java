@@ -8,7 +8,7 @@ public class Weather {
 	private double pressure;
 	private double windSpeed;
 	private String windDirection;
-	private int sunHours;
+	private double sunHours;
 	private double rain;
 	private int maxWindSpeed;
 	private String summary;
@@ -55,10 +55,10 @@ public class Weather {
 	public void setWindDirection(String windDirection) {
 		this.windDirection = windDirection;
 	}
-	public int getSunHours() {
+	public double getSunHours() {
 		return sunHours;
 	}
-	public void setSunHours(int sunHours) {
+	public void setSunHours(double sunHours) {
 		this.sunHours = sunHours;
 	}
 	public double getRain() {

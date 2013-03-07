@@ -14,7 +14,6 @@ public class DTGWSConnection {
 	public static final String CONNECTIONURL = "http://www.cl.cam.ac.uk/research/dtg/weather/current-obs.txt";
 	
 	public static Weather getCurrentWeather(){
-		System.out.println("GETTING THE WEATHER!");
 		ArrayList<String> fetchedWeather=null;
 		try{
 			fetchedWeather = fetchCurrentWeather();
@@ -25,27 +24,55 @@ public class DTGWSConnection {
 		
 		Weather weather = new Weather();
 		if(fetchedWeather!=null){
-			System.out.println("HERE");
 			//Temperature 
 			String tempFetched = fetchedWeather.get(2);
 			String temp = tempFetched.split(":")[1];
 			temp = temp.replaceAll("C", "").trim();
 			weather.setTemp(Double.parseDouble(temp));
 			
-			
 			//Pressure
+			String pressureFetched = fetchedWeather.get(3);
+			String pressure = pressureFetched.split(":")[1];
+			pressure = pressure.replaceAll("mBar", "").trim();
+			weather.setHumidity(Integer.parseInt(pressure));
 			
 			//Humidity
+			String humidFetched = fetchedWeather.get(4);
+			String humid = humidFetched.split(":")[1];
+			humid = humid.replaceAll("%", "").trim();
+			weather.setHumidity(Integer.parseInt(humid));
 			
 			//Dewpoint
+			String dewFetched = fetchedWeather.get(5);
+			String dew = dewFetched.split(":")[1];
+			dew = dew.replaceAll("C", "").trim();
+			weather.setDewPoint(Double.parseDouble(dew));
 			
 			//Wind
+			String windFetched = fetchedWeather.get(6);
+			String wind = windFetched.split(":")[1].trim();
+			String[] windA = wind.split(" ");
+			wind = windA[0];
+			weather.setWindSpeed(Double.parseDouble(wind));
 			
 			//Sunshine
+			String sunFetched = fetchedWeather.get(7);
+			String sun = sunFetched.split(":")[1].trim();
+			String[] sunA = sun.split(" ");
+			sun = sunA[0];
+			weather.setSunHours(Double.parseDouble(sun));
 			
 			//Rainfall
+			String rainFetched = fetchedWeather.get(8);
+			String rain = rainFetched.split(":")[1].trim();
+			String[] rainA = rain.split(" ");
+			rain = rainA[0];
+			weather.setRain(Double.parseDouble(rain));
 			
 			//Summary
+			String summary = fetchedWeather.get(10);
+			summary = summary.split(":")[1].trim();
+			weather.setSummary(summary);
 		}
 		
 		return weather;
