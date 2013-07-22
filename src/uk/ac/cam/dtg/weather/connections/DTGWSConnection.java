@@ -14,15 +14,15 @@ public class DTGWSConnection {
 	public static final String CONNECTIONURL = "http://www.cl.cam.ac.uk/research/dtg/weather/current-obs.txt";
 	
 	public static Weather getCurrentWeather(){
-		ArrayList<String> fetchedWeather=null;
+        ArrayList<String> fetchedWeather=null;
 		try{
 			fetchedWeather = fetchCurrentWeather();
 		}catch(Exception e){
 			Log.e("DTG_Weather", "There was a problem fetching the weather from the weather station");
 			e.printStackTrace();
 		}
-		
-		Weather weather = new Weather();
+
+        Weather weather = new Weather();
 		if(fetchedWeather!=null){
 			//Temperature 
 			String tempFetched = fetchedWeather.get(2);
